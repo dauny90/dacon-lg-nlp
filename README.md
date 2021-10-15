@@ -1,9 +1,5 @@
 # DACON - AI-powered Meeting Transcript Summary Contest 👨‍💻
 
-<p align="center">
-<img src="https://dacon.s3.ap-northeast-2.amazonaws.com/competition/235813/header_background.jpeg" width="360">
-</p>
-
 ***
 ## Table of Contents
 1. [General Info](#general-info)
@@ -17,7 +13,7 @@
 ### General Info
 > This project aims to present the development pipeline of the DACON-LG competence, which is about generating an automatic meeting summary (In Korean Language) using NLP (tranformer) and its deployment using Flask.
 
-* Introduction:
+* Info:
     * [DACON](https://dacon.io/en/competitions/official/235813/overview/description)
 
 ***
