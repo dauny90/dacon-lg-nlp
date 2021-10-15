@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			DACON - LG - NLP - Meeting Summary
+		</div>
+		
+	</div>
+	</header>
+
+	<div class="ml-container">
+
+		<form action="{{ url_for('summarize')}}" method="POST">
+		<p>Enter Your Message Here</p>
+		<!-- <input type="text" name="comment"/> -->
+		<textarea name="message" rows="4" cols="50"></textarea>
+		<br/>
+
+		<input type="submit" class="btn-info" value="summarize">
+		
+	</form>
+		
+	</div>
+
+	
+	
+
+</body>
+</html>
