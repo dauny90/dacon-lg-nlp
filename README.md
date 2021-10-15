@@ -5,9 +5,10 @@
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
-4. [Structure](#structure)
-5. [Example](#example)
-6. [Documentation](#documentation)
+4. [Run](#run)
+5. [Structure](#structure)
+6. [Example](#example)
+7. [Documentation](#documentation)
 
 ***
 ### General Info
@@ -41,6 +42,14 @@ $ git init
 $ git clone https://github.com/dauny90/dacon-lg-nlp.git
 ```
 
+## Run
+> Run basic Flask App to transcript the input text:
+```
+$ cd ../MEETINGSUMMARY
+$ python app.py
+```
+> Open http://127.0.0.1:5000 in a browser.
+
 ***
 ## Structure
     .
@@ -54,7 +63,7 @@ $ git clone https://github.com/dauny90/dacon-lg-nlp.git
     │   ├── 1.preprocessing.py        # Input Preprocessing 
     │   ├── 2.train.py                # Train model using Transformer (it is recommended to use a GPU machine)
     │   ├── 3.predict.py              # Summary using trained model
-    └── app.py
+    └── app.py                        # Flask App
     └── ...
     
 ***
