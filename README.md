@@ -54,7 +54,7 @@ $ git clone https://github.com/dauny90/dacon-lg-nlp.git
     │   ├── 1.preprocessing.py        # Input Preprocessing 
     │   ├── 2.train.py                # Train model using Transformer (it is recommended to use a GPU machine)
     │   ├── 3.predict.py              # Summary using trained model
-    └── app.py
+    └── app.py                        # Flask App
     └── ...
     
 ***
