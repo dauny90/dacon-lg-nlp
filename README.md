@@ -38,7 +38,6 @@ $ pip install -r requirements.txt
 > Clone Repo:
 ```
 $ cd ../MEETINGSUMMARY
-$ git init
 $ git clone https://github.com/dauny90/dacon-lg-nlp.git
 ```
 
