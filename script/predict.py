@@ -1,8 +1,8 @@
 import pandas as pd
-from keras_transformer import get_model, decode
 import pickle
 import os
 os.environ['TF_KERAS'] = '1'
+from keras_transformer import get_model, decode
 
 
 def predict(model, sentence, target_token_dict, source_token_dict_full):
@@ -25,13 +25,13 @@ def predict(model, sentence, target_token_dict, source_token_dict_full):
     return '{}'.format(' '.join(map(lambda x: target_token_dict_inv[x], decoded[1:-1])))
 
 
-def result(test, target_token_dict, source_token_dict_full):
+def result(model,test, target_token_dict, source_token_dict_full):
     '''
     generar archivo para subbimitear en DACON.
     '''
     resultado = []
     for i in range(0, test.shape[0]):
-        _aux = predict(test.iloc[i, 3],
+        _aux = predict(model,test.iloc[i, 3],
                        target_token_dict, source_token_dict_full)
         resultado.append(_aux)
         print('summary:{}'.format(test.iloc[i, 3]))
@@ -68,4 +68,4 @@ if __name__ == '__main__':
     model.compile('adam', 'sparse_categorical_crossentropy')
     model.load_weights('../model/model.h5')
 
-    result(test, target_token_dict, source_token_dict_full)
+    result(model,test, target_token_dict, source_token_dict_full)

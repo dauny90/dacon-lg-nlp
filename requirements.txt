@@ -1,107 +1,48 @@
 absl-py @ file:///opt/concourse/worker/volumes/live/038c7640-529d-45f3-464f-ee37f5e0f4eb/volume/absl-py_1623867246969/work
-antlr4-python3-runtime==4.8
-appdirs==1.4.4
-appnope @ file:///opt/concourse/worker/volumes/live/4f734db2-9ca8-4d8b-5b29-6ca15b4b4772/volume/appnope_1606859466979/work
-argcomplete @ file:///tmp/build/80754af9/argcomplete_1618920853202/work
 astor==0.8.1
-autograd==1.3
-autoray==0.2.5
-backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 Bottleneck==1.3.2
 cached-property @ file:///tmp/build/80754af9/cached-property_1600785575025/work
-cachetools==4.2.4
-certifi==2021.5.30
-charset-normalizer==2.0.6
-cloudpickle==2.0.0
+certifi==2021.10.8
+click @ file:///tmp/build/80754af9/click_1621604852318/work
 coverage @ file:///opt/concourse/worker/volumes/live/4f1a5e30-f675-4496-6570-bc6669a34f2a/volume/coverage_1614614860186/work
-cycler==0.10.0
 Cython @ file:///opt/concourse/worker/volumes/live/432fe198-1725-458b-4530-7523a5e3de1a/volume/cython_1626256963932/work
-dask==2021.9.1
-debugpy @ file:///opt/concourse/worker/volumes/live/839ef258-c5a5-406a-56eb-b19da248f276/volume/debugpy_1629222714909/work
-decorator @ file:///tmp/build/80754af9/decorator_1632776554403/work
-entrypoints==0.3
-fonttools==4.25.0
-fsspec==2021.10.0
-future==0.18.2
+Flask @ file:///tmp/build/80754af9/flask_1634118196080/work
 gast==0.2.2
 google-pasta @ file:///Users/ktietz/demo/mc3/conda-bld/google-pasta_1630577991354/work
 grpcio @ file:///opt/concourse/worker/volumes/live/4f7ebd3c-7c5e-48f7-6ff5-de127acdc0d8/volume/grpcio_1614884166576/work
 h5py==2.10.0
-idna==3.2
 importlib-metadata @ file:///opt/concourse/worker/volumes/live/f3c3a723-0733-424b-6c0e-af69ac95b59a/volume/importlib-metadata_1631916705096/work
-ipykernel @ file:///opt/concourse/worker/volumes/live/ee8433fe-cc9b-44e9-5a1b-fa2fa242a287/volume/ipykernel_1633545427588/work/dist/ipykernel-6.4.1-py3-none-any.whl
-ipython @ file:///opt/concourse/worker/volumes/live/ad15a75a-a92a-4436-5caa-8624ec6ae6f9/volume/ipython_1632141406254/work
-ipython-genutils @ file:///tmp/build/80754af9/ipython_genutils_1606773439826/work
-jedi @ file:///opt/concourse/worker/volumes/live/e0916850-3b97-4da2-5dee-49b0d9627cef/volume/jedi_1611333761589/work
-joblib @ file:///tmp/build/80754af9/joblib_1613502643832/work
-jupyter-client @ file:///tmp/build/80754af9/jupyter_client_1630690655192/work
-jupyter-core @ file:///opt/concourse/worker/volumes/live/a699b83f-e941-4170-5136-bf87e3f37756/volume/jupyter_core_1612213304212/work
+itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
+Jinja2 @ file:///tmp/build/80754af9/jinja2_1624781299557/work
 keras==2.6.0
 Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
 keras-embed-sim==0.9.0
 keras-layer-normalization==0.15.0
 keras-multi-head==0.28.0
-keras-nightly==2.5.0.dev2021032900
 keras-pos-embd==0.12.0
 keras-position-wise-feed-forward==0.7.0
 Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_1612283640596/work
 keras-self-attention==0.50.0
 keras-transformer==0.39.0
-kiwisolver @ file:///opt/concourse/worker/volumes/live/1e6d28e8-da14-4365-7344-567a05db7efc/volume/kiwisolver_1612282399491/work
-llvmlite==0.36.0
-locket==0.2.1
 Markdown @ file:///opt/concourse/worker/volumes/live/255f8945-2411-4469-7c82-a749af3aef33/volume/markdown_1614363822772/work
-matplotlib @ file:///opt/concourse/worker/volumes/live/ea31f923-d5bd-4af7-6d95-b910b4a0fa5f/volume/matplotlib-suite_1628011455335/work
-matplotlib-inline @ file:///tmp/build/80754af9/matplotlib-inline_1628242447089/work
+MarkupSafe @ file:///opt/concourse/worker/volumes/live/2165c944-5d03-464f-57c1-1df4e51b3ac3/volume/markupsafe_1621528146825/work
 mkl-fft==1.3.0
 mkl-random @ file:///opt/concourse/worker/volumes/live/133f1d0b-8fd8-4fa0-679e-7214401cbd75/volume/mkl_random_1626186083386/work
 mkl-service==2.4.0
-mpmath==1.2.1
-munkres==1.1.4
-nest-asyncio @ file:///tmp/build/80754af9/nest-asyncio_1613680548246/work
-networkx==2.6.3
-numba==0.53.1
 numexpr @ file:///opt/concourse/worker/volumes/live/6bbc9b0e-ade0-40db-6ee6-74c979385fbb/volume/numexpr_1618856531941/work
-numpy @ file:///opt/concourse/worker/volumes/live/660b80d1-747e-493a-6b34-55d0a0e21650/volume/numpy_and_numpy_base_1626271790683/work
-olefile==0.46
+numpy @ file:///opt/concourse/worker/volumes/live/046e897c-3622-47d5-79cf-02f72d341f0d/volume/numpy_and_numpy_base_1634106712173/work
 opt-einsum @ file:///tmp/build/80754af9/opt_einsum_1621500238896/work
-packaging==21.0
 pandas==1.3.3
-parso @ file:///tmp/build/80754af9/parso_1617223946239/work
-partd==1.2.0
-pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
-pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
-Pillow @ file:///opt/concourse/worker/volumes/live/58ac8b05-9c32-444c-5460-921d3b599939/volume/pillow_1625655835023/work
-prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
 protobuf==3.17.2
-ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
-Pygments @ file:///tmp/build/80754af9/pygments_1629234116488/work
-pyparsing @ file:///home/linux1/recipes/ci/pyparsing_1610983426697/work
 python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
-pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
-PyYAML==5.4.1
-pyzmq @ file:///opt/concourse/worker/volumes/live/4e55a046-5b01-4947-5877-1affb3793a28/volume/pyzmq_1628276012891/work
-repoze.lru==0.7
-requests==2.26.0
-scikit-learn @ file:///opt/concourse/worker/volumes/live/f0bd346e-3899-4f7a-66d4-2d56daf61c92/volume/scikit-learn_1621370395459/work
+pytz==2021.3
 scipy @ file:///opt/concourse/worker/volumes/live/4eabb14c-0fb3-4254-5fd3-317c14f470de/volume/scipy_1630606815835/work
-semantic-version==2.6.0
 six @ file:///tmp/build/80754af9/six_1623709665295/work
-sympy==1.8
 tensorboard==2.0.0
 tensorflow==2.0.0
 tensorflow-estimator==2.0.0
 termcolor==1.1.0
-thewalrus==0.16.2
-threadpoolctl @ file:///Users/ktietz/demo/mc3/conda-bld/threadpoolctl_1629802263681/work
-toml==0.10.2
-toolz==0.11.1
-tornado @ file:///opt/concourse/worker/volumes/live/d531d395-893c-4ca1-6a5f-717b318eb08c/volume/tornado_1606942307627/work
-tqdm @ file:///tmp/build/80754af9/tqdm_1631818572807/work
-traitlets @ file:///tmp/build/80754af9/traitlets_1632522747050/work
 typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1631814937681/work
-urllib3==1.26.7
-wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
 Werkzeug @ file:///tmp/build/80754af9/werkzeug_1631818832573/work
 wrapt==1.12.1
-zipp @ file:///tmp/build/80754af9/zipp_1625570634446/work
+zipp @ file:///tmp/build/80754af9/zipp_1633618647012/work
