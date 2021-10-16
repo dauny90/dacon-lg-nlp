@@ -5,23 +5,15 @@ import os
 import pickle
 
 
-def read_files(dir,train_file,test_file):
+def read_file(dir,file):
     '''
     lectura de input de los archivos entregados por DACON
     '''
-
-    DIR = dir
-    train_soruce = os.path.join(DIR, train_file)
-    test_source = os.path.join(DIR, test_file)
-
-    with open(train_soruce) as f:
-        train_data = json.loads(f.read())
+    source = os.path.join(dir, file)
+    with open(source) as f:
+        source_data = json.loads(f.read())
     
-    with open(test_source) as f:
-        test_data = json.loads(f.read())
-
-    return train_data,test_data
-
+    return source_data
 
 def format_json(train_data,test_data):
     '''
@@ -58,27 +50,20 @@ def format_json(train_data,test_data):
 
     return train,test
 
-def create_token(train,test):
+def create_token(data,pos = 0):
     '''
     Tokenizar los textos por ' '.
     '''
-    source_tokens = []
-    for sentence in train.iloc[0:,3]:
-        source_tokens.append(sentence.split(' '))
+    tokens = []
+    for sentence in data.iloc[0:,pos]:
+        tokens.append(sentence.split(' '))
 
-    target_tokens = []
-    for sentence in train.iloc[0:,4]:
-        target_tokens.append(sentence.split(' '))
-
-    source_tokens_full = []
-    source_aux = pd.concat([train.iloc[0:,3],test.iloc[0:,3]], axis=0)
-
-    for sentence in source_aux:
-        source_tokens_full.append(sentence.split(' '))
-
-    return source_tokens,target_tokens,source_tokens_full
+    return tokens
 
 def build_token_dict(token_list):
+  '''
+    Armar diccionario de tokens, incluyendo PAD START y END
+  '''  
   token_dict = {
       '<PAD>': 0,
       '<START>': 1,
@@ -93,20 +78,21 @@ def build_token_dict(token_list):
 
 if __name__== '__main__':
 
-    train_json , test_json = read_files("../data/","train.json","test.json")
+    train_json = read_file("../data/", "train.json")
+    test_json = read_file("../data/", "test.json")
+
     train , test = format_json(train_json,test_json)
 
     train.iloc[0:,3] = train.iloc[0:,3].str.slice(0,2900)
-    train.iloc[0:,4] = train.iloc[0:,4]
     test.iloc[0:,3] = test.iloc[0:,3].str.slice(0,2900)
 
-    source_tokens,target_tokens,source_tokens_full = create_token(train,test)
+    source_tokens = create_token(train,3)
+    target_tokens = create_token(train ,4)
+    source_tokens_full = create_token(pd.DataFrame(pd.concat([train.iloc[0:,3],test.iloc[0:,3]], axis=0)),0)
 
     source_token_dict = build_token_dict(source_tokens)
     source_token_dict_full = build_token_dict(source_tokens_full)
     target_token_dict = build_token_dict(target_tokens)
-
-    #target_token_dict_inv = {v:k for k,v in target_token_dict.items()}
 
     # Agregar start, end y pad a cada frase del set de entrenamiento
     encoder_tokens = [['<START>'] + tokens + ['<END>'] for tokens in source_tokens]

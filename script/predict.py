@@ -5,7 +5,9 @@ from keras_transformer import get_model, decode
 import pandas as pd
 
 def predict(model,sentence,target_token_dict,source_token_dict_full):
-	
+    '''
+    Servir la prediccion a partir del modelo entrenado.
+    '''	
     target_token_dict_inv = {v:k for k,v in target_token_dict.items()}
     sentence_tokens = [tokens + ['<END>', '<PAD>'] for tokens in [sentence.split(' ')]]
     tr_input = [list(map(lambda x: source_token_dict_full[x], tokens)) for tokens in sentence_tokens][0]
