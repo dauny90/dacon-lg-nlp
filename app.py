@@ -3,6 +3,11 @@ from keras_transformer import get_model, decode
 from flask import Flask, render_template, url_for, request
 import pickle
 import os
+import logging
+
+logging.basicConfig(filename='app.log', level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+
 os.environ['TF_KERAS'] = '1'
 
 app = Flask(__name__)
@@ -18,10 +23,10 @@ def summarize():
     '''
     Recibe el metodo post,levanta los objetos necesarios para generar el resumen.
     '''
-    with open('../data/source_token_dict_full.pickle', 'rb') as handle:
+    with open('data/source_token_dict_full.pickle', 'rb') as handle:
         source_token_dict_full = pickle.load(handle)
 
-    with open('../data/target_token_dict.pickle', 'rb') as handle:
+    with open('data/target_token_dict.pickle', 'rb') as handle:
         target_token_dict = pickle.load(handle)
 
     model = get_model(
@@ -36,12 +41,14 @@ def summarize():
     )
 
     model.compile('adam', 'sparse_categorical_crossentropy')
-    model.load_weights('../model/model.h5')
+    model.load_weights('model/model.h5')
 
     if request.method == 'POST':
         message = request.form['message']
         my_prediction = predict(
             model, message, target_token_dict, source_token_dict_full)
+        app.logger.info('Texto recibido : {}'.format(message))
+        app.logger.info('Texto resumido : {}'.format(my_prediction))
     return render_template('result.html', prediction=my_prediction)
 
 
