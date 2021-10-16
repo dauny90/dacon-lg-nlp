@@ -15,12 +15,13 @@ def seed_everything(seed: int = 199030):
     np.random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
 
+
+
+    
+
 if __name__ == '__main__':
     
     seed_everything()
-
-    with open('../data/source_token_dict.pickle', 'rb') as handle:
-        source_token_dict = pickle.load(handle)
 
     with open('../data/source_token_dict_full.pickle', 'rb') as handle:
         source_token_dict_full = pickle.load(handle)
