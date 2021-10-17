@@ -69,3 +69,4 @@ if __name__ == '__main__':
     model.load_weights('../model/model.h5')
 
     result(model,test, target_token_dict, source_token_dict_full)
+

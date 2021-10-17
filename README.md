@@ -23,8 +23,7 @@
 * [Python](https://www.python.org/downloads/release/python-390/): Version 3.7
 * [Tensorflow](https://www.anaconda.com/blog/individual-edition-2021-05): Version 2.0
 * [Anaconda](https://www.anaconda.com/blog/individual-edition-2021-05): Version 2021.05
-* [Flask](https://flask.palletsprojects.com/en/2.0.x/): Version 2.0
-* [Docker](https://www.docker.com/)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/): Version 2.0.2
 
 ***
 ## Installation

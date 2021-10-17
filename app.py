@@ -21,7 +21,7 @@ def home():
 @app.route('/summarize', methods=['POST'])
 def summarize():
     '''
-    Recibe el metodo post,levanta los objetos necesarios para generar el resumen.
+    Recibe el metodo post,levanta los objetos necesarios para generar el resumen. 
     '''
     with open('data/source_token_dict_full.pickle', 'rb') as handle:
         source_token_dict_full = pickle.load(handle)

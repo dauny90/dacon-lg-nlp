@@ -55,3 +55,4 @@ if __name__ == '__main__':
 
     model.fit(x, y, epochs=80, batch_size=32)
     model.save_weights('../model/model.h5')
+
