@@ -30,7 +30,7 @@
 > In order to set up locally,follow below instruction:
 ```
 $ cd ../MEETINGSUMMARY
-$ conda create -n tf_env_dacon python=3 anaconda
+$ conda create -n tf_env_dacon python=3
 $ conda activate tf_env_dacon
 $ pip install -r requirements.txt
 ```
