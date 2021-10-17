@@ -1,7 +1,7 @@
 from script.predict import predict
-from keras_transformer import get_model, decode
-from flask import Flask, render_template, url_for, request
-import pickle
+from script.config import load_config,load_file
+from keras_transformer import get_model
+from flask import Flask, render_template, request
 import os
 import logging
 
@@ -23,25 +23,25 @@ def summarize():
     '''
     Recibe el metodo post,levanta los objetos necesarios para generar el resumen. 
     '''
-    with open('data/source_token_dict_full.pickle', 'rb') as handle:
-        source_token_dict_full = pickle.load(handle)
 
-    with open('data/target_token_dict.pickle', 'rb') as handle:
-        target_token_dict = pickle.load(handle)
+    config = load_config("config.yaml")
+
+    source_token_dict_full = load_file(config['data_directory'],config['source_token_dict_full'])
+    target_token_dict = load_file(config['data_directory'],config['target_token_dict'])
 
     model = get_model(
         token_num=max(len(source_token_dict_full), len(target_token_dict)),
-        embed_dim=64,
-        encoder_num=3,
-        decoder_num=3,
-        head_num=4,
-        hidden_dim=128,
-        dropout_rate=0.1,
-        use_same_embed=False,
+        embed_dim=config["embed_dim"],
+        encoder_num=config["encoder_num"],
+        decoder_num=config["decoder_num"],
+        head_num=config["head_num"],
+        hidden_dim=config["hidden_dim"],
+        dropout_rate=config["dropout_rate"],
+        use_same_embed=config["use_same_embed"],
     )
 
-    model.compile('adam', 'sparse_categorical_crossentropy')
-    model.load_weights('model/model.h5')
+    model.compile(config["opt"], config["metric"])
+    model.load_weights(config['model_directory']+config['model'])
 
     if request.method == 'POST':
         message = request.form['message']

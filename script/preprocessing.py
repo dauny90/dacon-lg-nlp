@@ -1,19 +1,6 @@
 import pandas as pd
 import numpy as np
-import json
-import os
-import pickle
-
-
-def read_file(dir, file):
-    '''
-    lectura de input de los archivos entregados por DACON
-    '''
-    source = os.path.join(dir, file)
-    with open(source) as f:
-        source_data = json.loads(f.read())
-
-    return source_data
+from config import load_config,save_file,read_file
 
 
 def format_json(train_data, test_data):
@@ -82,16 +69,19 @@ def build_token_dict(token_list):
 
 if __name__ == '__main__':
 
+
+    config = load_config("config.yaml")
+
     # Levantar los .json
-    train_json = read_file("../data/", "train.json")
-    test_json = read_file("../data/", "test.json")
+    train_json = read_file(config['data_directory'], config['train_json'])
+    test_json = read_file(config['data_directory'], config['test_json'])
 
     # Formatear los .json a formato dataframe de pandas.
     train, test = format_json(train_json, test_json)
 
     # Truncar con tamaño 2900 dado que,longitudes mayores son outliers.
-    train.iloc[0:, 3] = train.iloc[0:, 3].str.slice(0, 2900)
-    test.iloc[0:, 3] = test.iloc[0:, 3].str.slice(0, 2900)
+    train.iloc[0:, 3] = train.iloc[0:, 3].str.slice(0, config['size'])
+    test.iloc[0:, 3] = test.iloc[0:, 3].str.slice(0, config['size'])
 
     # Tokenizar cada archivo convirtiendo en objetos unicos.
     source_tokens = create_token(train, 3)
@@ -131,26 +121,11 @@ if __name__ == '__main__':
                       for tokens in output_tokens]
 
     # Guardar los objetos para su posterior uso
-    with open('../data/source_token_dict.pickle', 'wb') as handle:
-        pickle.dump(source_token_dict, handle)
-
-    with open('../data/source_token_dict_full.pickle', 'wb') as handle:
-        pickle.dump(source_token_dict_full, handle)
-
-    with open('../data/target_token_dict.pickle', 'wb') as handle:
-        pickle.dump(target_token_dict, handle)
-
-    with open('../data/encoder_input.pickle', 'wb') as handle:
-        pickle.dump(encoder_input, handle)
-
-    with open('../data/decoder_input.pickle', 'wb') as handle:
-        pickle.dump(decoder_input, handle)
-
-    with open('../data/target_token_dict.pickle', 'wb') as handle:
-        pickle.dump(target_token_dict, handle)
-
-    with open('../data/output_decoded.pickle', 'wb') as handle:
-        pickle.dump(output_decoded, handle)
-
-    test.to_csv('../data/test_processed.csv', index=False)
+    save_file(config['data_directory'],config['source_token_dict'],source_token_dict)
+    save_file(config['data_directory'],config['source_token_dict_full'],source_token_dict_full)
+    save_file(config['data_directory'],config['target_token_dict'],target_token_dict)
+    save_file(config['data_directory'],config['encoder_input'],encoder_input)
+    save_file(config['data_directory'],config['decoder_input'],decoder_input)
+    save_file(config['data_directory'],config['output_decoded'],output_decoded)
+    test.to_csv(config['data_directory']+config['test_processed'], index=False)
 
